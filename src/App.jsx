@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 
-function App() {
-  const API = "https://pokeapi.co/api/v2/pokemon/ditto";
+function App(props) {
+  const API = "https://pokeapi.co/api/v2/pokemon/";
   const [contador, setContador] = useState(0);
   const [nombre, setNombre] = useState("def nombre");
   const [img, setImg] = useState("def img");
 
   useEffect(()=>{
     async function fectchApi() {
-      const res = await fetch(API);
+      const res = await fetch(API+props.NombrePokemon);
       let info = "def info";
       if (res.ok) {
         info = await res.json();
